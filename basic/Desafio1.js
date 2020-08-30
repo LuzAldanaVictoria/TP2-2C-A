@@ -28,3 +28,18 @@ const str = `<ul>
 // Fecha de solucio: Miercoles 2 de SEP
 
 // Modalidad de entrega. Pull Request.
+let acumulador = 0;
+const arrayDeString = str.split('\n');
+const arrayFiltradoPorRedux = arrayDeString.filter((element) => element.includes('Redux Video'));
+const arrayTrimeado = arrayFiltradoPorRedux.map((element) => element.trim(''));
+const arrayDeObjectos = arrayTrimeado.map((element) => {
+    const tiempo = element.substring(15).split('"')[0]
+    const minutosYsegundos = tiempo.split(':');
+    return objetosRedux = {
+        minutos: parseInt(minutosYsegundos[0]),
+        segundos: parseInt(minutosYsegundos[1]),
+    };
+});
+arrayDeObjectos.forEach((element) => { acumulador += ((element.minutos * 60) + element.segundos) });
+console.log('Resultado tiempo total de video Redux en segundos', acumulador);
+
